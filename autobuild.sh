@@ -2,6 +2,8 @@
 MON=$1
 COMMAND="du -sh -b $MON"
 val1=`$COMMAND`
+kill -9 `jps | grep Launcher | awk '{print $1}'`
+mvn jetty:run &
 while(true);do
     echo "val1 " $val1
     val2=`$COMMAND`

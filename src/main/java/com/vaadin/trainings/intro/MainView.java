@@ -1,6 +1,7 @@
 package com.vaadin.trainings.intro;
 
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.page.BodySize;
@@ -15,7 +16,9 @@ public class MainView extends VerticalLayout {
 
 	public MainView() {
 		setMargin(true);
-		add(new Paragraph("Hello")); 
+		add(new VaadinWelcome());
+        final Button button = new Button("Click me!");
+        add(button);
+        button.addClickListener(e -> add(new Paragraph("added from button!")));
 	}
-
 }
